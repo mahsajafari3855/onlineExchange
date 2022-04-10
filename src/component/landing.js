@@ -5,6 +5,13 @@ import Spiner from "./spiner";
 
 const Landing = () => {
   const [coins, setCoin] = useState([]);
+  const [search, setSearch] = useState([]);
+  const searchHandler = (event) => {
+    setSearch(event.target.value);
+  };
+  const searchedCoins = coins.filter((coin) =>
+    coin.name.toString().toLowerCase().includes(search.toString().toLowerCase())
+  );
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -16,10 +23,15 @@ const Landing = () => {
   }, []);
   return (
     <>
-      <input type="text" placeholder="Search" />
+      <input
+        type="text"
+        placeholder="Search"
+        value={search}
+        onChange={searchHandler}
+      />
       {coins.length ? (
         <div>
-          {coins.map((coins) => (
+          {searchedCoins.map((coins) => (
             <Coins
               key={coins.id}
               name={coins.name}
