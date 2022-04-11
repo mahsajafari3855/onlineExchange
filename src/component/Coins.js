@@ -1,14 +1,19 @@
 import React from "react";
+import styles from "../style/Coins.module.css";
 
 const Coins = ({ image, name, symbol, price, marketPrice, priceChange }) => {
   return (
-    <div>
-      <img src={image} />
-      <span> {name}</span>
-      <span> {symbol}</span>
-      <span> {price}</span>
-      <span> {marketPrice}</span>
-      <span> {priceChange}</span>
+    <div className={styles.container}>
+      <img src={image} className={styles.image} />
+      <span className={styles.name}> {name}</span>
+      <span className={styles.symbol}> {symbol}</span>
+      <span className={styles.currentPrice}> {price}</span>
+      <span className={styles.marketCap}> {marketPrice}</span>
+      <span
+        className={priceChange > 0 ? styles.greenPriceChange : styles.redPriceChange}
+      >
+        {priceChange}
+      </span>
     </div>
   );
 };

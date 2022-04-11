@@ -4,7 +4,7 @@ import Landing from "./component/landing";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header >
         <h1> search</h1>
         <Landing />
       </header>
