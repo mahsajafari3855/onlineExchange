@@ -12,7 +12,7 @@ const Coins = ({ image, name, symbol, price, marketPrice, priceChange }) => {
       <span
         className={priceChange > 0 ? styles.greenPriceChange : styles.redPriceChange}
       >
-        {priceChange}
+        {priceChange.toFixed(2)}
       </span>
     </div>
   );
